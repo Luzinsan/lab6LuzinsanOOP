@@ -125,6 +125,14 @@ namespace luMath
                 }
             return new Matrix((int)a.Rows, (int)b.Cols, matrix);
         }
+        
+        public static Matrix operator *(Matrix a, int k)
+        {
+            Matrix result = new Matrix(a);
+            for (int i=0; i<a.Rows* a.Cols; i++)
+                result.Table[i] *= k;
+            return result;
+        }
 
         public double this[int i, int j]
         {
